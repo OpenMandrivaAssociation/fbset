@@ -1,14 +1,17 @@
-Summary: Framebuffer utilities for changing video modes.
-Name: fbset
-Version: 2.1
-Release: 15mdk
+%define name fbset
+%define version 2.1
+%define release %mkrel 16
+
+Summary: Framebuffer utilities for changing video modes
+Name: %{name}
+Version: %{version}
+Release: %{release}
 License: GPL
 Group: System/Kernel and hardware
-URL: http://home.tvd.be/cr26864/Linux/fbdev
-Source: http://home.tvd.be/cr26864/Linux/fbdev/fbset-%{version}.tar.bz2
+Source: fbset-%{version}.tar.bz2
 Patch: fbset-2.0-pre-19981028.patch
 Patch2: fbset-2.1-mdkconf.patch
-BuildRequires:	bison flex
+BuildRequires: bison flex bzip2
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -23,14 +26,15 @@ perl -pi -e 's|geometry 10224 768 10224 768 8|geometry 1024 768 1024 768 8|' etc
 perl -pi -e 's|geometry 1024 1024 1024 1024 8|geometry 1280 1024 1280 1024 8|' etc/fb.modes.ATI
 
 %build
-%make CFLAGS="$RPM_OPT_FLAGS"
+%make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 #make install PREFIX=$RPM_BUILD_ROOT
 install %{name} -D $RPM_BUILD_ROOT%{_sbindir}/%{name}
-install %{name}.8 -D $RPM_BUILD_ROOT%{_mandir}/man8/%{name}.8
-install fb.modes.5 -D $RPM_BUILD_ROOT%{_mandir}/man5/fb.modes
+bzip2 %{name}.8 fb.modes.5
+install %{name}.8.bz2 -D $RPM_BUILD_ROOT%{_mandir}/man8/%{name}.8.bz2
+install fb.modes.5.bz2 -D $RPM_BUILD_ROOT%{_mandir}/man5/fb.modes.bz2
 
 ## It's a useable default not perfect but ..
 #%ifarch sparc sparc64
