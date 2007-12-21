@@ -12,6 +12,7 @@ Source: fbset-%{version}.tar.bz2
 Patch: fbset-2.0-pre-19981028.patch
 Patch2: fbset-2.1-mdkconf.patch
 BuildRequires: bison flex bzip2
+BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 fbset is a utility for querying and changing video modes of fbcon consoles.
