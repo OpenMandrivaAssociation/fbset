@@ -29,20 +29,20 @@ perl -pi -e 's|geometry 1024 1024 1024 1024 8|geometry 1280 1024 1280 1024 8|' e
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-#make install PREFIX=$RPM_BUILD_ROOT
-install %{name} -D $RPM_BUILD_ROOT%{_sbindir}/%{name}
+rm -rf %{buildroot}
+#make install PREFIX=%{buildroot}
+install %{name} -D %{buildroot}%{_sbindir}/%{name}
 bzip2 %{name}.8 fb.modes.5
-install %{name}.8.bz2 -D $RPM_BUILD_ROOT%{_mandir}/man8/%{name}.8.bz2
-install fb.modes.5.bz2 -D $RPM_BUILD_ROOT%{_mandir}/man5/fb.modes.bz2
+install %{name}.8.bz2 -D %{buildroot}%{_mandir}/man8/%{name}.8.bz2
+install fb.modes.5.bz2 -D %{buildroot}%{_mandir}/man5/fb.modes.bz2
 
 ## It's a useable default not perfect but ..
 #%ifarch sparc sparc64
-install etc/fb.modes.ATI -D $RPM_BUILD_ROOT%{_sysconfdir}/fb.modes
+install etc/fb.modes.ATI -D %{buildroot}%{_sysconfdir}/fb.modes
 #%endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
