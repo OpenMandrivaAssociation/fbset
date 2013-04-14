@@ -1,6 +1,7 @@
 %define name fbset
 %define version 2.1
-%define release %mkrel 24
+%define release 25
+%define debug_package %{nil}
 
 Summary: Framebuffer utilities for changing video modes
 Name: %{name}
