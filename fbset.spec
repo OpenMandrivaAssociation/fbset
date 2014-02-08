@@ -3,7 +3,7 @@
 Summary:	Framebuffer utilities for changing video modes
 Name:		fbset
 Version:	2.1
-Release:	25
+Release:	26
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://users.telenet.be/geertu/Linux/fbdev/
