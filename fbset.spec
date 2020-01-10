@@ -19,7 +19,7 @@ fbset is a utility for querying and changing video modes of fbcon consoles.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 sed -i -e 's|geometry 10224 768 10224 768 8|geometry 1024 768 1024 768 8|' etc/fb.modes.ATI
 sed -i -e 's|geometry 1024 1024 1024 1024 8|geometry 1280 1024 1280 1024 8|' etc/fb.modes.ATI
