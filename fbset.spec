@@ -3,7 +3,7 @@
 Summary:	Framebuffer utilities for changing video modes
 Name:		fbset
 Version:	2.1
-Release:	34
+Release:	35
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://users.telenet.be/geertu/Linux/fbdev/
@@ -25,7 +25,7 @@ sed -i -e 's|geometry 10224 768 10224 768 8|geometry 1024 768 1024 768 8|' etc/f
 sed -i -e 's|geometry 1024 1024 1024 1024 8|geometry 1280 1024 1280 1024 8|' etc/fb.modes.ATI
 
 %build
-%make
+%make_build
 
 %install
 install %{name} -D %{buildroot}%{_sbindir}/%{name}
