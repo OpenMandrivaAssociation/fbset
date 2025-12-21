@@ -10,6 +10,7 @@ Url:		https://users.telenet.be/geertu/Linux/fbdev/
 Source0:	http://users.telenet.be/geertu/Linux/fbdev/%{name}-%{version}.tar.gz
 Patch0:		fbset-2.0-pre-19981028.patch
 Patch2:		fbset-2.1-mdkconf.patch
+BuildRequires:	make
 BuildRequires:	bison
 BuildRequires:	bzip2
 BuildRequires:	flex
